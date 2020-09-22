@@ -3,7 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+// import * as hello_js from "./hello"
+// import hello, {surName} from './hello'
+// import {surName} from './hello'
+// import {surName as azganun} from "./hello"
+// hello("edmon");
+// console.log(surName);
+// console.log(hello_js);
 ReactDOM.render(
   <React.StrictMode>
     <App />
