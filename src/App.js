@@ -1,24 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import User from "./modules.js//module1";
+import Lesson from "./modules.js//module2"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+         <h1>
+           <User name="edmon" surname='sargsyan' age='20' />
+         </h1>
+         <Lesson />
     </div>
   );
 }
