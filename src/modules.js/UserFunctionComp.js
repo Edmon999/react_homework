@@ -1,7 +1,7 @@
 import React from "react"
 function User(props){
     return (
-    <span className="user">
+    <span>
         {props.name} {props.surname} {props.age}
     </span>
     )

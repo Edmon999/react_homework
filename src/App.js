@@ -1,15 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import User from "./modules.js//module1";
-import Lesson from "./modules.js//module2"
+// import User from "./modules.js//UserFunctionComp"
+// import Lesson from "./modules.js//Lesson"
+// import "./modules.js/class"
+import Product from './modules.js/Product1.jsx'
 function App() {
   return (
     <div className="App">
-         <h1>
-           <User name="edmon" surname='sargsyan' age='20' />
-         </h1>
-         <Lesson />
+      {/* <h1>
+        <User name="edmon" surname='sargsyan' age='20' />
+      </h1> */}
+      {/* <Lesson /> */}
+      <Product
+        name={'banabas'}
+        price='1$'
+        description='Fresh bananas from Ecuador' />
+ 
     </div>
   );
 }
