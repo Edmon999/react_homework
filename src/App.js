@@ -4,6 +4,7 @@ import './App.css';
 // import User from "./modules.js//UserFunctionComp"
 // import Lesson from "./modules.js//Lesson"
 // import "./modules.js/class"
+// import Person from './modules.js//Person'
 import Product from './modules.js/Product1.jsx'
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
       <Product
         name={'banabas'}
         price='1$'
-        description='Fresh bananas from Ecuador' />
- 
+        description='Fresh bananas from Ecuador' 
+        />
+      {/* <Person name="edmon" age={20} lastName="sargsyan"/> */}
     </div>
   );
 }

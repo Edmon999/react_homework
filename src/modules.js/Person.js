@@ -16,3 +16,16 @@
 // }
 // let cat1 = new Cat(15)
 // console.log(cat1)
+// import React, { Component } from 'react'
+// class Person extends Component {
+//     render() {
+//         console.log(this.props)
+//         return (
+//             <div>
+//                 {this.props.name}
+//             </div>
+//         )
+
+//     }
+// }
+// export default Person 
