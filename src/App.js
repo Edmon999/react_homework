@@ -1,24 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import User from "./modules.js//UserFunctionComp"
-// import Lesson from "./modules.js//Lesson"
-// import "./modules.js/class"
-// import Person from './modules.js//Person'
+ import "./modules.js//Counter"
 import Product from './modules.js/Product1.jsx'
+// import Counter from './modules.js//Counter';
 function App() {
   return (
     <div className="App">
-      {/* <h1>
-        <User name="edmon" surname='sargsyan' age='20' />
-      </h1> */}
-      {/* <Lesson /> */}
       <Product
         name={'banabas'}
-        price='1$'
+        price='115$'
         description='Fresh bananas from Ecuador' 
         />
-      {/* <Person name="edmon" age={20} lastName="sargsyan"/> */}
+        {/* <Counter value={5}/> */}
     </div>
   );
 }
