@@ -7,7 +7,7 @@ class Product extends Component {
     //     super(props);
     // }
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <div>
                 <Price text={this.props.price}/>

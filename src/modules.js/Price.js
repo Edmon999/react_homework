@@ -24,7 +24,6 @@ class Price extends Component {
         }
     }
     render() {
-        console.log(this.state)
         return (
             <>
                 <p> price is: {this.state.price}</p>
