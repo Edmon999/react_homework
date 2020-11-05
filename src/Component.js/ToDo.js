@@ -11,29 +11,37 @@ class ToDo extends Component {
         })
     }
     handleClick = () =>{
-       this.state.tasks.push(this.state.value);
+        const tasks = [...this.state.tasks]
+       tasks.push(this.state.value);
         this.setState({
-            tasks: this.state.tasks,
+            tasks: tasks,
             value: ''
         })
     }
     render() {
-        console.log(this.state.tasks)
-        const tasksArr = this.state.tasks.map((el,i) => {
-            return <p key={i}>{el}</p>
+        const {tasks} = this.state
+        const tasksArr = tasks.map((el,i) => {
+            return <Task key={i} data={el}/>
         })
         return (
             <div>
-                <input type="text" value={this.state.value} onChange={this.handleChange}>
-                
+                <input
+                 type="text"
+                 placeholder="add task"
+                 value={this.state.value}
+                 onChange={this.handleChange}>
                 </input>
              <div>
-                 <button onClick={this.handleClick}>  
+                 
+                 <button
+                  onClick={this.handleClick}>  
                   add task
                 </button>
             </div>
+                <ol>
                 {tasksArr}
-            </div>
+                </ol>
+   </div>
         )
     }
 }

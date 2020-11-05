@@ -1,9 +1,7 @@
 import React from "react"
 function Task(props){
     return (
-        <div>
-
-        </div>
+    <li>{props.data}</li>
     )
 }
 export default Task

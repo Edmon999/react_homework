@@ -1,11 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import "./modules.js//Counter"
+import "./Component.js//Counter"
 // import Product from './modules.js/Product1.jsx'
 // import Counter from './modules.js//Counter';
 // import New from './modules.js/New'
-import ToDo from './modules.js//ToDo'
+import ToDo from './Component.js//ToDo'
 function App() {
   return (
     <div className="App">
