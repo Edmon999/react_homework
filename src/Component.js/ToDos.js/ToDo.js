@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Task from './Task'
+import Task from '../tasker.js/Task'
+import image from '../tasker.js//images//pic.png'
 class ToDo extends Component {
     state = {
         tasks: [],
@@ -21,7 +22,7 @@ class ToDo extends Component {
     render() {
         const {tasks} = this.state
         const tasksArr = tasks.map((el,i) => {
-            return <Task key={i} data={el}/>
+            return <Task key={i} data={el} selected={i===2}/>
         })
         return (
             <div>
@@ -38,6 +39,7 @@ class ToDo extends Component {
                   add task
                 </button>
             </div>
+            {/* <img src={image} width="150px" height="150px"></img> */}
                 <ol>
                 {tasksArr}
                 </ol>

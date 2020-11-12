@@ -1,22 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import "./Component.js//Counter"
-// import Product from './modules.js/Product1.jsx'
-// import Counter from './modules.js//Counter';
-// import New from './modules.js/New'
-import ToDo from './Component.js//ToDo'
+// import './Component.js/Demo.js/Counter'
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import ToDo from './Component.js/ToDos.js/ToDo'
+// import Bootstrap from "./Component.js/Demo.js/Bootstrap-demo"
+import ExToDo from './Component.js/ToDos.js/ToDoExample'
 function App() {
   return (
     <div className="App">
-      {/* <Product
-        name={'banabas'}
-        price='115$'
-        description='Fresh bananas from Ecuador' 
-        /> */}
-        {/* <Counter value={5}/> */}
-        {/* <New /> */}
-        <ToDo />
+        <ExToDo />
+        {/* <Bootstrap /> */}
     </div>
   );
 }
