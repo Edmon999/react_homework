@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, {PureComponent } from 'react'
 import { Container, Row, Col, FormControl, InputGroup, Button } from "react-bootstrap"
 import styles from './ToDoEx.module.css'
 import idGenerator from '../../Helpers.js//idGenerator'
 import ToDotask from './ToDoTask'
-class ExToDo extends Component {
+class ExToDo extends PureComponent {
     state = {
         tasks: [],
         inputValue: "",
@@ -30,7 +30,6 @@ class ExToDo extends Component {
         }
         const tasks = [...this.state.tasks]
         tasks.push(newTask)
-        console.log(tasks)
         this.setState({
             tasks: tasks,
             inputValue: ''
@@ -61,10 +60,13 @@ class ExToDo extends Component {
        })
        this.setState({
            tasks,
-           selectedTask: new Set()
+           selectedTask: new Set(),
+           inputValue: "",
        })
     }
+   
     render() {
+        console.log("todoex")
         const tasksArr = this.state.tasks
             .map((task) => {
                 return (<Col key={task._id} xs={12} sm={6} md={4} lg={3} xl={2}>
@@ -77,9 +79,6 @@ class ExToDo extends Component {
                 </Col>
                 )
             })
-
-
-
         return (
             <div className={styles.toDo}>
                 <Container>

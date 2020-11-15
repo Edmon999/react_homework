@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import {Button, Card } from "react-bootstrap"
 import styles from './ToDoEx.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit} from '@fortawesome/free-solid-svg-icons'
-export default class Task extends Component{
+export default class Task extends PureComponent{
     state = {
         checked: false,
     }
@@ -17,6 +17,7 @@ export default class Task extends Component{
         const {checked} = this.state
         const {disabled} = this.props
         const task = this.props.data
+        console.log("task")
         return(
             <Card className={`${styles.task} ${checked ? styles.selected : ""}`}>
                         <Card.Body>
