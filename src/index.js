@@ -8,9 +8,9 @@ import * as serviceWorker from './serviceWorker';
 // import {surName} from './hello'
 // import {surName as azganun} from "./hello"
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+    <App />,
+  // {/* </React.StrictMode>, */}
   document.getElementById('root')
 );
 

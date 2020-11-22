@@ -1,13 +1,18 @@
 import React, {PureComponent } from 'react'
-import { Container, Row, Col, FormControl, InputGroup, Button } from "react-bootstrap"
+import { Container, Row, Col, Button } from "react-bootstrap"
 import styles from './ToDoEx.module.css'
-import idGenerator from '../../Helpers.js//idGenerator'
+import idGenerator from '../../Helpers.js/idGenerator'
 import ToDotask from './ToDoTask'
+import AddTask from "../AddTask//AddTask"
+import Confirm from './Confirm'
+import EditTask from "../EditTask//EditTask"
 class ExToDo extends PureComponent {
     state = {
         tasks: [],
         inputValue: "",
-        selectedTask: new Set()
+        selectedTask: new Set(),
+        showConfirm: false,
+        edittask: null,
     }
     handleInputChange = (event) => {
         this.setState({
@@ -19,13 +24,9 @@ class ExToDo extends PureComponent {
             this.addTask()
         }
     }
-    addTask = () => {
-        const { inputValue } = this.state;
-        if (!inputValue) {
-            return;
-        }
+    addTask = (value) => {
         const newTask = {
-            text: inputValue,
+            text: value,
             _id: idGenerator()
         }
         const tasks = [...this.state.tasks]
@@ -62,11 +63,36 @@ class ExToDo extends PureComponent {
            tasks,
            selectedTask: new Set(),
            inputValue: "",
+           showConfirm: false,
        })
     }
-   
+    toggleConfirm = () => {
+        const {showConfirm} = this.state
+        this.setState({
+            showConfirm: !showConfirm
+        })
+    }
+    toggleEdit = (task) => {
+        this.setState({
+            edittask: task,
+        })
+    }
+    onClose = () => {
+        this.setState({
+            edittask: null,
+        })
+    }
+    saveTask = (editedtask) => {
+        const tasks = [...this.state.tasks]
+        const editedTaskIndex = tasks.findIndex((task) => task._id === editedtask._id)
+        tasks[editedTaskIndex] = editedtask;
+        this.setState({
+            tasks: tasks,
+            edittask: null,
+        })
+    }
     render() {
-        console.log("todoex")
+        const {showConfirm, edittask} = this.state
         const tasksArr = this.state.tasks
             .map((task) => {
                 return (<Col key={task._id} xs={12} sm={6} md={4} lg={3} xl={2}>
@@ -75,35 +101,21 @@ class ExToDo extends PureComponent {
                         onRemove={this.removeTask}
                         onCheck={this.handleCheck}
                         disabled={!!this.state.selectedTask.size}
+                        onEdit = {this.toggleEdit}
                     />
                 </Col>
                 )
             })
+            
         return (
             <div className={styles.toDo}>
                 <Container>
                     <Row className="justify-content-center">
                         <Col sm={10} xs={12} md={8} lg={6}>
-                            <InputGroup className={styles.input}>
-                                <FormControl
-                                    placeholder="Add task"
-                                    aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2"
-                                    onChange={this.handleInputChange}
-                                    onKeyDown={this.handleKeyDown}
-                                    value={this.state.inputValue}
-                                    disabled={!!this.state.selectedTask.size}
-                                />
-                                <InputGroup.Append>
-                                    <Button
-                                        variant="outline-secondary"
-                                        onClick={this.addTask}
-                                        disabled={!this.state.inputValue}
-                                    >
-                                        Add
-                                    </Button>
-                                </InputGroup.Append>
-                            </InputGroup>
+                            <AddTask 
+                            onAdd = {this.addTask}
+                            disabled = {!!this.state.selectedTask.size}
+                            />
                         </Col>
                     </Row>
                     <Row>
@@ -113,7 +125,7 @@ class ExToDo extends PureComponent {
                         <Col>
                             <Button
                                 variant="outline-danger"
-                                onClick={this.removeSelected}
+                                onClick={this.toggleConfirm}
                                 disabled={!this.state.selectedTask.size}
                             >
                                 Remove Selected
@@ -121,6 +133,23 @@ class ExToDo extends PureComponent {
                         </Col>
                     </Row>
                 </Container>
+               {
+               showConfirm && 
+               <Confirm
+                onSubmit = {this.removeSelected} 
+                handleClose = {this.toggleConfirm}
+                count = {this.state.selectedTask.size}
+                />
+               }
+               {
+                   !!edittask 
+                   &&
+                    <EditTask
+                    data = {edittask}
+                    handleClose = {this.onClose}
+                    onSave = {this.saveTask}
+                    />
+               }
             </div>
         )
     }
