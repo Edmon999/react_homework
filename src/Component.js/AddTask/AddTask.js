@@ -22,7 +22,10 @@ export default class Addtask extends Component {
         if(!inputValue){
             return 
         }
-        this.props.onAdd(inputValue)
+        const newTask = {
+            title: inputValue,
+        }
+        this.props.onAdd(newTask)
         this.setState({
             inputValue: '',
         })

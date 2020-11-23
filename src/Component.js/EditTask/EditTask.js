@@ -11,19 +11,20 @@ export default class EditTask extends Component{
   }
   handleChange = (event) => {
     this.setState({
-      text: event.target.value
+      title: event.target.value
     })
   }
   handleSave = () => {
-    const {text} = this.state;
-    if(!text) {
+    const {title} = this.state;
+    console.log(title)
+    if(!title) {
       return;
     }
     this.props.onSave(this.state)
   }
     render(){ 
         const {props} = this;
-        const {text} = this.state
+        const {title} = this.state
         return(
         <Modal show={true} onHide={props.handleClose} centered>
           <Modal.Header closeButton>
@@ -32,7 +33,7 @@ export default class EditTask extends Component{
           <Modal.Body>
           <input type="text" 
           className={styles.taskInput}
-          value = {text}
+          value = {title}
           onChange = {this.handleChange}
           />
           </Modal.Body>
