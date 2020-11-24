@@ -1,62 +1,81 @@
 import React, { Component } from "react"
-import {FormControl, InputGroup, Button} from "react-bootstrap"
+import { FormControl,Button, Modal } from "react-bootstrap"
 import styles from './AddTask.module.css'
 import PropTypes from 'prop-types'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 export default class Addtask extends Component {
-    state = { 
-        inputValue: '',
+    state = {
+        title: '',
+        description: '',
+        date: new Date()
     }
     handleInputChange = (event) => {
+        const {name, value} = event.target
         this.setState({
-            inputValue: event.target.value
+            [name]: value
         })
     }
     handleKeyDown = (event) => {
-        if(event.key === "Enter"){
+        if (event.key === "Enter") {
             this.addTask();
         }
-        return 
+        return
     }
-    addTask = () => {
-        const {inputValue} = this.state
-        if(!inputValue){
-            return 
-        }
-        const newTask = {
-            title: inputValue,
-        }
-        this.props.onAdd(newTask)
+    handleChangeDate = (date) => {
         this.setState({
-            inputValue: '',
+            date
         })
     }
+    addTask = () => {
+        const { title, description} = this.state
+        if (!title) {
+            return
+        }
+        const newTask = {
+            title,
+            description,
+        }
+        this.props.onAdd(newTask)
+    }
     render() {
-        const {disabled} = this.props
+        const {handleClose } = this.props
         return (
-            <InputGroup className={styles.input}>
-                <FormControl
-                    placeholder="Add task"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                    onChange={this.handleInputChange}
-                    onKeyDown={this.handleKeyDown}
-                    value={this.state.inputValue}
-                    disabled={disabled}
-                />
-                <InputGroup.Append>
-                    <Button
-                        variant="outline-secondary"
-                        onClick={this.addTask}
-                        disabled={disabled}
-                    >
-                        Add
-                    </Button>
-                </InputGroup.Append>
-            </InputGroup>
+                <Modal show={true} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Add new Task</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                    <FormControl
+                        name="title"
+                        placeholder="title"
+                        onChange={this.handleInputChange}
+                        onKeyDown={this.handleKeyDown}
+                    />
+                    <textarea 
+                        className={styles.description}
+                        rows="5"
+                        placeholder="Description"
+                        onChange={this.handleInputChange}
+                        name="description"
+                     > 
+                     </textarea>
+                     <DatePicker 
+                    selected={new Date()}
+                    onChange={this.handleChangeDate} />
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={this.addTask}>
+                            Add
+                        </Button>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                         </Button>
+                    </Modal.Footer>
+                </Modal>
         )
     }
 }
 Addtask.propTypes = {
     onAdd: PropTypes.func.isRequired,
-    disabled: PropTypes.bool.isRequired
 }

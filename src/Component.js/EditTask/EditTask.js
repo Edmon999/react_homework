@@ -16,7 +16,6 @@ export default class EditTask extends Component{
   }
   handleSave = () => {
     const {title} = this.state;
-    console.log(title)
     if(!title) {
       return;
     }

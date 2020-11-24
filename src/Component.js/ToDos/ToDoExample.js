@@ -12,6 +12,7 @@ class ExToDo extends PureComponent {
         selectedTask: new Set(),
         showConfirm: false,
         edittask: null,
+        toggleAddTaskModal: false,
     }
     componentDidMount = () => {
         fetch("http://localhost:3001/task", {
@@ -60,7 +61,8 @@ class ExToDo extends PureComponent {
                 const tasks = [...this.state.tasks]
                 tasks.push(response)
                 this.setState({
-                    tasks
+                    tasks,
+                    toggleAddTaskModal: false,
                 })
             })
             .catch((error) => {
@@ -176,8 +178,13 @@ class ExToDo extends PureComponent {
                 console.log(error)
             })
     }
+    toggleAddTask = () => {
+        this.setState({
+            toggleAddTaskModal: !this.state.toggleAddTaskModal
+        })
+    }
     render() {
-        const { showConfirm, edittask } = this.state
+        const { showConfirm, edittask, toggleAddTaskModal } = this.state
         const tasksArr = this.state.tasks
             .map((task) => {
                 return (<Col key={task._id} xs={12} sm={6} md={4} lg={3} xl={2}>
@@ -197,10 +204,12 @@ class ExToDo extends PureComponent {
                 <Container>
                     <Row className="justify-content-center">
                         <Col sm={10} xs={12} md={8} lg={6}>
-                            <AddTask
-                                onAdd={this.addTask}
-                                disabled={!!this.state.selectedTask.size}
-                            />
+                        <Button
+                            variant="outline-secondary"
+                            onClick={this.toggleAddTask}
+                        >
+                            Add Task
+                        </Button>
                         </Col>
                     </Row>
                     <Row>
@@ -234,6 +243,15 @@ class ExToDo extends PureComponent {
                         handleClose={this.onClose}
                         onSave={this.saveTask}
                     />
+                }
+                {
+                    toggleAddTaskModal
+                    &&
+                    <AddTask
+                        onAdd={this.addTask}
+                        handleClose={this.toggleAddTask}
+                    />
+
                 }
             </div>
         )
