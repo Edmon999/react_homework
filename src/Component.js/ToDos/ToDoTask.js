@@ -4,6 +4,7 @@ import styles from './ToDoEx.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit} from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
+import {changeDateFormat} from '../../Helpers//changeDateFormat'
 export default class Task extends PureComponent{
     state = {
         checked: false,
@@ -26,9 +27,9 @@ export default class Task extends PureComponent{
                              onClick = {this.handleCheck}
                              />
                             <Card.Title>{task.title}</Card.Title>
-                            <Card.Text>
-                                {task.description}
-                            </Card.Text>
+                            <Card.Text> Description: {task.description}   </Card.Text>
+                            <Card.Text>Date: {changeDateFormat(task.date)} </Card.Text>
+                            <Card.Text> Created at: {changeDateFormat(task.created_at)} </Card.Text>
                             <Button 
                             className={styles.actionButton}
                             variant="danger"
