@@ -127,7 +127,7 @@ class ExToDo extends PureComponent {
                 })
                 this.setState({
                     tasks,
-                    selectedTask: new Set,
+                    selectedTask: new Set(),
                     showConfirm: false
                 })
             })

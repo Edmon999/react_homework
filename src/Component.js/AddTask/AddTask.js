@@ -20,7 +20,6 @@ export default class Addtask extends Component {
         if (event.key === "Enter") {
             this.addTask();
         }
-        return
     }
     handleChangeDate = (date) => {
         this.setState({
