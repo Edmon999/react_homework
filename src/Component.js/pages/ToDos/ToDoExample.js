@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import { Container, Row, Col, Button } from "react-bootstrap"
 import styles from './ToDoEx.module.css'
 import ToDotask from './ToDoTask'
-import AddTask from "../AddTask/AddTask"
+import AddTask from "../../AddTask/AddTask"
 import Confirm from './Confirm'
-import EditTask from "../EditTask/EditTask"
+import EditTask from "../../EditTask/EditTask"
 class ExToDo extends PureComponent {
     state = {
         tasks: [],

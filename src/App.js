@@ -1,16 +1,24 @@
 import React from 'react';
 import './App.css';
-// import './Component.js/Demo.js/Counter'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import ToDo from './component.js/ToDos.js/ToDo'
-// import Bootstrap from "./component.js/Demo.js/Bootstrap-demo"
-import ExToDo from './component.js/ToDos/ToDoExample'
-// import Promise from "./component.js//Demo.js//Promise"
+import ExToDo from './component.js//pages//ToDos//ToDoExample'
+import About from './component.js//pages//About//About'
+import SingleTask from './component.js//pages//SingleTask//SingleTask'
+import NotFound from './component.js//pages//404//404'
+import { Route, Switch, Redirect,} from 'react-router-dom'
+import Navbar from './component.js//NavbarLink//NavbarLink'
 function App() {
   return (
     <div className="App">
-        <ExToDo />
-        {/* <Bootstrap /> */}
+{/* <Link to="/task"> task</Link> */}
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={ExToDo} />
+        <Route path="/about" exact component={About} />
+        <Route path="/task/:id" exact component={SingleTask} />
+        <Route path="/404" exact component={NotFound} />
+        <Redirect to='/404' />
+      </Switch>
     </div>
   );
 }

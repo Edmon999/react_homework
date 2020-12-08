@@ -4,7 +4,8 @@ import styles from './ToDoEx.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit} from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
-import {changeDateFormat} from '../../Helpers//changeDateFormat'
+import {changeDateFormat} from '..//..//..//Helpers//changeDateFormat'
+import {Link} from 'react-router-dom'
 export default class Task extends PureComponent{
     state = {
         checked: false,
@@ -26,7 +27,9 @@ export default class Task extends PureComponent{
                              type ="checkbox"
                              onClick = {this.handleCheck}
                              />
-                            <Card.Title>{task.title}</Card.Title>
+                            <Card.Title>
+                            <Link to={`task/${task._id}`}>{task.title}</Link>
+                            </Card.Title>
                             <Card.Text> Description: {task.description}   </Card.Text>
                             <Card.Text>Date: {changeDateFormat(task.date)} </Card.Text>
                             <Card.Text> Created at: {changeDateFormat(task.created_at)} </Card.Text>
