@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
-import styles from './NavbarLink.module.css'
+import styles from './Navbar.module.css'
 export default function NavbarLink() {
     return (
         <Navbar bg="light" expand="lg">

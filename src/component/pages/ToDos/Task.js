@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import {Button, Card } from "react-bootstrap"
-import styles from './ToDoEx.module.css'
+import styles from './ToDo.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit} from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'

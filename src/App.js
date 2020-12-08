@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ExToDo from './component.js//pages//ToDos//ToDoExample'
-import About from './component.js//pages//About//About'
-import SingleTask from './component.js//pages//SingleTask//SingleTask'
-import NotFound from './component.js//pages//404//404'
+import ExToDo from './component//pages//ToDos//ToDo'
+import About from './component//pages//About//About'
+import SingleTask from './component//pages//SingleTask//SingleTask'
+import NotFound from './component//pages//404//404'
 import { Route, Switch, Redirect,} from 'react-router-dom'
-import Navbar from './component.js//NavbarLink//NavbarLink'
+import Navbar from './component//Navbar//Navbar'
 function App() {
   return (
     <div className="App">
