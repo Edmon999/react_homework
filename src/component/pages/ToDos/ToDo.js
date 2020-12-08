@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap"
 import styles from './ToDo.module.css'
 import ToDotask from './Task'
 import AddTask from "../../AddTask/AddTask"
-import Confirm from './Confirm'
+import Confirm from '../../Confirm/Confirm'
 import EditTask from "../../EditTask/EditTask"
 class ExToDo extends PureComponent {
     state = {
