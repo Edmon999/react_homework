@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-// import * as hello_js from "./hello"
-// import hello, {surName} from './hello'
-// import {surName} from './hello'
-// import {surName as azganun} from "./hello"
+import {BrowserRouter} from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

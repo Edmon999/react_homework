@@ -1,0 +1,1 @@
+ export const changeDateFormat = (strDate) => strDate.slice(0,10)
