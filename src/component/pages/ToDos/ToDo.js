@@ -20,7 +20,7 @@ class ExToDo extends PureComponent {
             headers: {
                 "content-type": "application/json"
             }
-        })
+        }) 
             .then((res) => res.json())
             .then((response) => {
                 if (response.error) {

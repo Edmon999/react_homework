@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import { Button, Modal } from "react-bootstrap";
 import PropTypes from 'prop-types'
 import styles from "./editTask.module.css"
@@ -10,6 +10,10 @@ export default class EditTask extends Component {
       ...props.data,
       date: new Date(props.data.date)
     }
+    this.titleRef = createRef();
+  }
+  componentDidMount = () => {
+    this.titleRef.current.focus()
   }
   handleChange = (event) => {
     const {name, value} = event.target
@@ -48,6 +52,7 @@ export default class EditTask extends Component {
             className={styles.taskInput}
             onChange={this.handleChange}
             value={title}
+            ref = {this.titleRef}
           />
           <textarea
             rows="5"
