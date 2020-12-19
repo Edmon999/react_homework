@@ -20,12 +20,12 @@ export default function NavbarLink() {
                         className={styles.links}>
                         About
                      </NavLink>
-                     {/* <NavLink
-                        to="/task"
+                     <NavLink
+                        to="/Contact"
                         exact activeClassName={styles.Activelink}
                         className={styles.links}>
-                        Task
-                    </NavLink> */}
+                        Contact
+                    </NavLink>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
