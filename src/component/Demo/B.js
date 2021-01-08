@@ -1,33 +1,30 @@
 import React, { Component } from 'react'
-
+import C from "./C"
+import D from "./D"
+import {connect} from 'react-redux'
 class B extends Component {
     state = {
-        inputValue: ''
+        inputValue: ""
     }
-    handleChange = (event) => {
+    inputValueC = (text) => {
         this.setState({
-            inputValue: event.target.value
+            inputValue: text
         })
-    }
-    handleClick = () => {
-       const value = this.state.inputValue;
-       this.props.onSendValue(value);
-       this.setState({
-           inputValue: ""
-       })
     }
     render() {
         console.log(this.props)
         return (
           <div>
-            <input type="text" onChange = {this.handleChange} value={this.state.inputValue}>
-            
-            </input>
-            <button onClick = {this.handleClick}>
-                Send
-            </button>
+            <h3>{this.props.val}</h3>
+          <C />
+          <D />
           </div>
         )
     }
 }
-export default B
+const mapStateToProps = (state) => {
+    return {
+        val: state.texts
+    }
+}
+export default connect(mapStateToProps)(B)

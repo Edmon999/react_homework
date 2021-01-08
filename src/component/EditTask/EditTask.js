@@ -2,8 +2,10 @@ import React, { Component, createRef } from 'react'
 import { Button, Modal } from "react-bootstrap";
 import PropTypes from 'prop-types'
 import styles from "./editTask.module.css"
-import DatePicker from "react-datepicker";
-export default class EditTask extends Component {
+import DatePicker from "react-datepicker"
+import {connect} from 'react-redux'
+import {editTask} from '../../store//action'
+ class EditTask extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +32,7 @@ export default class EditTask extends Component {
       ...this.state,
       date: date.toISOString().slice(0, 10)
     }
-    this.props.onSave(editedTask)
+    this.props.editTask(editedTask, this.props.from)
   }
   handleChangeDate = (date) => {
     this.setState({
@@ -83,7 +85,10 @@ export default class EditTask extends Component {
 
 }
 EditTask.propTypes = {
-          data: PropTypes.object.isRequired,
-    // onSave: PropTypes.func.isRequired,
+     data: PropTypes.object.isRequired,
     handleClose: PropTypes.func.isRequired
   }
+  const mapDispatchToProps = {
+    editTask
+  }
+  export default connect(null, mapDispatchToProps)(EditTask)
