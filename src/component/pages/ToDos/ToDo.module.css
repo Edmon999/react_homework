@@ -5,6 +5,9 @@
 .task{
     margin: 10px auto;
 }
+.task:hover{
+    background-color: rgba(52, 84, 97, 0.103);
+}
 .input{
     margin-bottom: 10px;
 }

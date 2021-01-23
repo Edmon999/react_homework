@@ -30,10 +30,8 @@ function App(props) {
         <Route path="/about" exact component={About} />
         <Route path="/task/:id" exact component={SingleTask} />
         <Route path="/task" exact component={ExToDo} />
-        <Route path="/hook" exact component={Hooks} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/404" exact component={NotFound} />
-        <Route path="/b" exact component={B} />
         <Redirect to='/404' />
       </Switch>
       <ToastContainer

@@ -15,8 +15,10 @@ class ExToDo extends PureComponent {
         showConfirm: false,
         edittask: null,
         toggleAddTaskModal: false,
+        flipped: false
     }
     componentDidMount = () => {
+        console.log(process.env)
         this.props.getTasks()
     }
     componentDidUpdate = (prevProps) => {
@@ -83,16 +85,25 @@ class ExToDo extends PureComponent {
             toggleAddTaskModal: !this.state.toggleAddTaskModal
         })
     }
+    mouseEvent = () => {
+        this.setState({
+            flipped: !this.state.flipped
+        })
+    }
     render() {
         const { showConfirm, edittask, toggleAddTaskModal } = this.state
         const tasksArr = this.props.tasks
             .map((task) => {
-                return (<Col key={task._id} xs={12} sm={8} md={6} lg={4} xl={3}>
+                return (
+                <Col key={task._id} xs={12} sm={8} md={6} lg={4} xl={3} 
+                onMouseEnter={this.mouseEvent} 
+                onMouseLeave={this.mouseEvent}>
                     <ToDotask
                         data={task}
                         onCheck={this.handleCheck}
                         disabled={!!this.state.selectedTask.size}
                         onEdit={this.toggleEdit}
+                        flipped={this.state.flipped}
                     />
                 </Col>
                 )

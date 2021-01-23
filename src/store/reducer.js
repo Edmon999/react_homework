@@ -92,6 +92,36 @@ const reducer = (state = defaultState, action) => {
             }
 
         }
+        case actionTypes.CHANGE_TASK_STATUS: {
+            let message;
+            if (action.task.status === "done") {
+                message = "Congratulations"
+            }
+            else{
+                message = "Your task active now"
+            }
+            if (action.from === "single") {
+                return {
+                    ...state,
+                    task: action.task,
+                    loading: false,
+                    successMessage: message,
+                    editTaskSuccess: true,
+                }
+            } else {
+                const tasks = [...state.tasks]
+                const editedTaskIndex = tasks.findIndex((task) => task._id === action.task._id)
+                tasks[editedTaskIndex] = action.task;
+                return {
+                    ...state,
+                    tasks: tasks,
+                    loading: false,
+                    successMessage: "Tasks edited successfully",
+                    editTaskSuccess: true,
+                }
+            }
+
+        }
         case actionTypes.GET_TASK_SUCCESS: {
             return {
                 ...state,
