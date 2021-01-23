@@ -138,8 +138,8 @@ const reducer = (state = defaultState, action) => {
                 removeTaskSuccess: true,
             }
         }
+        default: return state;
     }
 
-    return state
 }
 export { reducer }
