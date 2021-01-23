@@ -1,8 +1,12 @@
 .toDo{
     padding: 15px;
+    text-align: center;
 }
 .task{
-    margin: 10px auto
+    margin: 10px auto;
+}
+.task:hover{
+    background-color: rgba(52, 84, 97, 0.103);
 }
 .input{
     margin-bottom: 10px;
@@ -13,3 +17,10 @@
 .selected{
     border: 1px solid #f00
 }
+.Search{
+    background: rgba(52, 84, 97, 0.103);
+    text-align: left;
+}
+/* .description{
+   
+} */

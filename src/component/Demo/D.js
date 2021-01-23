@@ -1,28 +1,22 @@
 import React, { Component } from 'react'
-
+import {connect} from 'react-redux'
 class D extends Component {
-    state = {
-        name: "John",
-        showText: true
-    }
-    changeText = () => {
-        this.setState({
-            showText: !this.state.showText
-        })
-    }
+   
     render() {
-    const   {name,showText} = this.state
+        console.log(this.props)
         return (
          <div>
-         {showText 
-         ?
-         <p>{name}</p>:
-         <p>"nothing to show"</p>
-         }
-         {/* {showText && <p>{name}</p>} */}
-         <button onClick={this.changeText}>click</button>
+         <p>show input C</p>
+         <p>{this.props.value}</p>
          </div>
         )
     }
 }
-export default D
+const  mapStateToProps = (state) => {
+    console.log(state)
+
+    return {
+        value: state.text
+    }
+}
+export default connect(mapStateToProps, null)(D)

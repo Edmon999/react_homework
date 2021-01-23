@@ -1,4 +1,16 @@
-.App {
+/* .App {
   text-align: center;
+} */
+.spinner{
+  background: rgba(255,255,255,0.7);
+  opacity: 0.8;
+  height: 1200vh;
+  width: 1200vw;
+  position: absolute;
+  z-index: 9999999;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: "red"
 }
-
