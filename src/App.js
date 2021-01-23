@@ -8,9 +8,7 @@ import SingleTask from './component//pages//SingleTask//SingleTask'
 import NotFound from './component//pages//404//404'
 import { Route, Switch, Redirect, } from 'react-router-dom'
 import Navbar from './component//Navbar//Navbar'
-import Hooks from './component//Demo//hooks'
 import Contact from './component//pages//contact//Contact'
-import B from './component//Demo//B'
 import { ToastContainer, toast } from 'react-toastify';
 import {connect} from "react-redux"
 import Spinner from './Helpers//Spinner'
