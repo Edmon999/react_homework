@@ -10,22 +10,35 @@ class Footer extends  Component{
       <MDBRow>
           <MDBCol md="12" className="py-4">
             <div className="mb-5 flex-center">
-              <a className="fb-ic">
+              <a className="fb-ic"
+              href="https://github.com/Edmon999"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
                 <i className="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x">
                 </i>
               </a>
               <a className="gplus-ic"
-              href="https://github.com/Edmon999"
-              target="_blank"
+               href="https://github.com/Edmon999"
+               target="_blank"
+               rel="noopener noreferrer"
               >
                 <i className="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x">
                 </i>
               </a>
-              <a className="li-ic">
+              <a className="li-ic"
+                href="https://github.com/Edmon999"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x">
                 </i>
               </a>
-              <a className="ins-ic">
+              <a className="ins-ic"
+                href="https://github.com/Edmon999"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x">
                 </i>
               </a>
