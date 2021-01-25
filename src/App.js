@@ -12,6 +12,7 @@ import Contact from './component//pages//contact//Contact'
 import { ToastContainer, toast } from 'react-toastify';
 import {connect} from "react-redux"
 import Spinner from './Helpers//Spinner'
+import Footer from './component//Footer//Footer'
 function App(props) {
   const {errorMessage, loading, successMessage} = props
   if(errorMessage){
@@ -32,6 +33,7 @@ function App(props) {
         <Route path="/404" exact component={NotFound} />
         <Redirect to='/404' />
       </Switch>
+      <Footer />
       <ToastContainer
         position="bottom-left"
         autoClose={5000}

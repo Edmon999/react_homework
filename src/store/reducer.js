@@ -10,7 +10,6 @@ const defaultState = {
     editTaskSuccess: false,
 }
 const reducer = (state = defaultState, action) => {
-    console.log(action)
     switch (action.type) {
         case actionTypes.LOADING: {
             return {
@@ -95,10 +94,10 @@ const reducer = (state = defaultState, action) => {
         case actionTypes.CHANGE_TASK_STATUS: {
             let message;
             if (action.task.status === "done") {
-                message = "Congratulations"
+                message = "Your task active now"
             }
             else{
-                message = "Your task active now"
+                message = "Congratulations"
             }
             if (action.from === "single") {
                 return {
@@ -116,7 +115,7 @@ const reducer = (state = defaultState, action) => {
                     ...state,
                     tasks: tasks,
                     loading: false,
-                    successMessage: "Tasks edited successfully",
+                    successMessage: message,
                     editTaskSuccess: true,
                 }
             }
@@ -136,6 +135,13 @@ const reducer = (state = defaultState, action) => {
                 loading: false,
                 successMessage: "Task removed successfully",
                 removeTaskSuccess: true,
+            }
+        }
+        case actionTypes.SEND_CONTACT: {
+            return {
+                ...state,
+                loading: false,
+                successMessage: "success",
             }
         }
         default: return state;
