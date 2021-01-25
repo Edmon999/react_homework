@@ -158,3 +158,21 @@ export function removeSelectedTasks(taskIds) {
                 })
         }
     }
+    export function sendContact(data) {
+        return (dispatch) => {
+            dispatch({ type: actionTypes.LOADING })
+            request(`${apiUrl}/form`, `POST`, data)
+                .then((data) => {
+                    dispatch({
+                        type: actionTypes.SEND_CONTACT,
+                        contact: data,
+                    })
+                })
+                .catch((err) => {
+                    dispatch({
+                        type: actionTypes.ERROR,
+                        error: err.message
+                    })
+                })
+        }
+    }

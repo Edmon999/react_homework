@@ -55,7 +55,7 @@ class Task extends PureComponent {
                             :
                             <Button
                                 className={styles.actionButton}
-                                variant="warning"
+                                variant="info"
                                 onClick={() => this.props.changeTaskStatus(task._id, {status: "active"}, "task")}
                                 disabled={disabled}
                             >
@@ -72,7 +72,7 @@ class Task extends PureComponent {
                     </Button>
                     <Button
                         className={styles.actionButton}
-                        variant="info"
+                        variant="warning"
                         disabled={disabled}
                         onClick={() => this.props.onEdit(task)}
                     >

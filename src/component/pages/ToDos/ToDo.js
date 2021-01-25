@@ -8,6 +8,7 @@ import EditTask from "../../EditTask/EditTask"
 import Search from '..//..//Search//Search'
 import { connect } from 'react-redux'
 import { getTasks, removeSelectedTasks } from '../../../store//action'
+
 class ExToDo extends PureComponent {
     state = {
         inputValue: "",
@@ -18,7 +19,6 @@ class ExToDo extends PureComponent {
         flipped: false
     }
     componentDidMount = () => {
-        console.log(process.env)
         this.props.getTasks()
     }
     componentDidUpdate = (prevProps) => {

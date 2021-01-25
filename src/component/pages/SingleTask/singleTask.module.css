@@ -1,0 +1,32 @@
+.buttons {
+    margin: 4px;
+}
+.main {
+    text-align: center;
+    background-image: url("./images/pexel.jpeg");
+    background-size: cover;
+    height: 100vh;
+    height: 100%;
+    color: white
+}
+.description{
+    border-width:5px;  
+    padding: 20px;
+    border-style:outset;
+}
+
+.date{
+    border-width:5px;  
+    border-style:outset;
+    padding: 10px;
+    
+}
+.created_at{
+    border-width:5px;  
+    border-style:outset;
+    padding: 10px;
+}
+
+.title{
+ letter-spacing: 2px;
+}
