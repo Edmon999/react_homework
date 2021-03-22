@@ -14,12 +14,6 @@ export default function NavbarLink() {
                         className={styles.links}>
                         Home
                     </NavLink>
-                    <NavLink
-                        to="/about"
-                        exact activeClassName={styles.Activelink}
-                        className={styles.links}>
-                        About
-                     </NavLink>
                      <NavLink
                         to="/Contact"
                         exact activeClassName={styles.Activelink}

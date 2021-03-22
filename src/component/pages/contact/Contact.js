@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { MDBInput } from "mdbreact";
 import { Button } from "react-bootstrap"
-import {connect} from 'react-redux'
-import {sendContact} from './/..//..//..//store//action'
+import { connect } from 'react-redux'
+import { sendContact } from './/..//..//..//store//action'
 class Contact extends Component {
     state = {
         name: "",
@@ -16,9 +16,9 @@ class Contact extends Component {
         })
     }
     handleClick = () => {
-        const {name, email, message} = this.state
-        const contact = { 
-            name, 
+        const { name, email, message } = this.state
+        const contact = {
+            name,
             email,
             message
         }
@@ -56,7 +56,7 @@ class Contact extends Component {
                         value={this.state.email}
                     />
                 </div>
-                <div className="ml-form">
+                <div className="md-form">
                     <MDBInput
                         icon="pencil-alt"
                         label="Your message"
@@ -66,6 +66,7 @@ class Contact extends Component {
                         name="message"
                         onChange={this.handleChange}
                         value={this.state.message}
+                        rows="6"
                     />
                 </div>
                 <Button
@@ -76,7 +77,7 @@ class Contact extends Component {
         )
     }
 }
- const mapDispatchToProps = {
+const mapDispatchToProps = {
     sendContact
 }
 export default connect(null, mapDispatchToProps)(Contact)

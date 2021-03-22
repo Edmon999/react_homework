@@ -35,7 +35,7 @@ class Footer extends  Component{
                 </i>
               </a>
               <a className="ins-ic"
-                href="https://github.com/Edmon999"
+                href="https://www.instagram.com/edmon_sargsyan/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

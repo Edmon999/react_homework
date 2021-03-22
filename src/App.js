@@ -3,7 +3,6 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ExToDo from './component//pages//ToDos//ToDo'
-import About from './component//pages//About//About'
 import SingleTask from './component//pages//SingleTask//SingleTask'
 import NotFound from './component//pages//404//404'
 import { Route, Switch, Redirect, } from 'react-router-dom'
@@ -26,7 +25,6 @@ function App(props) {
       <Navbar />
       <Switch>
         <Route path="/" exact component={ExToDo} />
-        <Route path="/about" exact component={About} />
         <Route path="/task/:id" exact component={SingleTask} />
         <Route path="/task" exact component={ExToDo} />
         <Route path="/contact" exact component={Contact} />
